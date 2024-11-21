@@ -25,17 +25,17 @@ const asciiArt = `
  • TYPE : Share ảo facebook
 `
 
-console.log(asciiArt.bold.brightGreen);
+console.log(asciiArt.bold.Green);
 
 var config = {
   cookies: '',
   id: ''
 };
-console.log("Nhập cookie facebook: ".bold.brightGreen);
+console.log("Nhập cookie facebook: ".bold.Green);
 config.cookies = readline.question();
-console.log("Nhập id bài viết: ".bold.brightGreen);
+console.log("Nhập id bài viết: ".bold.Green);
 config.id = readline.question();
-console.log("Nhập số lượt chia sẻ: ".bold.brightGreen);
+console.log("Nhập số lượt chia sẻ: ".bold.Green);
 var shareCount = readline.question();
 
 fs.writeFileSync("./config.json", JSON.stringify(config));
@@ -86,14 +86,14 @@ class Share {
         url: `https://graph.facebook.com/me/feed?link=https://m.facebook.com/${config['id']}&published=0&access_token=${token}`,
         headers: headers
       }).then(res => {
-        console.log(`[ ${a++} ] - `.bold.brightGreen + `${res.data.id}`.bold.brightGreen)
+        console.log(`[ ${a++} ] - `.bold.Green + `${res.data.id}`.bold.Green)
         count++;
         /*if (count === shareCount) {
            console.log("Successful");
            clearInterval(interval);
         }*/
       }).catch(err => {
-        console.log("[ LỖI ]:".bold.brightRed + "Không share được!".bold.brightRed)
+        console.log("[ LỖI ]:".bold.Red + "Không share được!".bold.Red)
       })
     }, 1000)
   }
