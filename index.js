@@ -1,4 +1,4 @@
-var colors = require("colors");
+
 var axios = require("axios");
 var fs = require("fs");
 var a = 0;
